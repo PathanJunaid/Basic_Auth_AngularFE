@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+    <span>My Application</span>
+    <!-- Spacer to push the profile circle to the right -->
+    <span class="spacer"></span>
+    <!-- Profile circle button triggering the menu -->
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile menu">
+      <span class="profile-circle">U</span> <!-- Replace 'U' with user initials or an icon -->
+    </button>
+    <!-- Dropdown menu -->
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </mat-toolbar>
+  
+  <div class="home-container">
+    <h1>{{ title }}</h1>
+    <p>This is your protected home content. Enjoy your stay!</p>
+  </div>

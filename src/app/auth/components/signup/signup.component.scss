@@ -1,0 +1,49 @@
+
+
+  .signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    
+  }
+  
+  .signup-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .login-link {
+    margin-top: 16px;
+    text-align: center;
+    a {
+      color: #3f51b5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  }
+  
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; // Space between text and spinner
+  }
+  
+  mat-spinner {
+    display: inline-block;
+  }
+
+  .textmargin{
+    margin: 0rem 0rem 1rem 0rem;
+  }
+
+  

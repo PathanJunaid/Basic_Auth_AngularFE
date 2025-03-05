@@ -1,0 +1,48 @@
+<div class="signup-container">
+  <mat-card class="signup-card" [@cardAnimation]>
+    <mat-card-header>
+      <mat-card-title class="textmargin">Sign Up</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Enter your name">
+          <mat-error *ngIf="signupForm.get('name')?.hasError('required')">
+            Name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" placeholder="Enter your email">
+          <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="signupForm.get('email')?.hasError('email') && !signupForm.get('email')?.hasError('required')">
+            Invalid email format
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" placeholder="Enter your password">
+          <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+            Password is required
+          </mat-error>
+          <mat-error *ngIf="signupForm.get('password')?.hasError('minlength') && !signupForm.get('password')?.hasError('required')">
+            Password must be at least 6 characters
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid || isLoading" class="full-width">
+          <span *ngIf="!isLoading">Sign Up</span>
+          <mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+        </button>
+      </form>
+      <div class="login-link">
+        Already have an account? <a routerLink="/login">Login</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

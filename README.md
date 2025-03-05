@@ -1,6 +1,5 @@
 Here’s the `README.md` content in Markdown format, ready to be copied into your project:
 
-```markdown
 # Basic Auth Frontend (Basic_Auth_FE)
 
 This is an Angular-based frontend application for a basic authentication system. It provides user login, signup, and a protected home page with logout functionality. The app uses Angular Material for UI components, JWT-based authentication, and integrates with a backend API (assumed to be an ASP.NET Core service).

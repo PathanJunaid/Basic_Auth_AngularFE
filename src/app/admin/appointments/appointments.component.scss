@@ -1,0 +1,99 @@
+.appointments-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.appointments-card {
+  width: 100%;
+  max-width: 900px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: white;
+}
+
+mat-card-header {
+  padding-bottom: 16px;
+}
+
+mat-card-title {
+  font-size: 1.5rem;
+  color: #3f51b5;
+}
+
+mat-card-subtitle {
+  color: #666;
+}
+
+.filter-field {
+  width: 200px;
+  margin: 16px 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th.mat-header-cell {
+  background-color: #e8eaf6;
+  color: #3f51b5;
+  font-weight: 600;
+}
+
+td.mat-cell {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.appointment-row:hover {
+  background-color: #f5f5f5;
+  transition: background-color 0.2s;
+}
+
+.status-chip {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: white;
+  &.scheduled {
+    background-color: #4caf50;
+  }
+  &.completed {
+    background-color: #2196f3;
+  }
+  &.cancelled {
+    background-color: #f44336;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.profile-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #3f51b5;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.mr-2{
+  margin: 0rem 3rem 0rem 0rem;
+}

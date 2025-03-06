@@ -1,0 +1,71 @@
+<mat-toolbar color="primary">
+  <span class="mr-2">Admin </span>
+  <button mat-button routerLink="/admin/create-appointment" [routerLinkActive]="['active']">Create Appointment</button>
+  <button mat-button routerLink="/admin/appointments" [routerLinkActive]="['active']">Appointments</button>
+  <span class="spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile menu">
+    <span class="profile-circle">A</span>
+  </button>
+  <mat-menu #profileMenu="matMenu">
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+</mat-toolbar>
+
+<div class="create-appointment-container">
+    <mat-card class="create-appointment-card">
+      <mat-card-header>
+        <mat-card-title>Create Appointment</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>User</mat-label>
+            <mat-select formControlName="userId">
+              <mat-option *ngFor="let user of users" [value]="user.id">{{ user.name }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="appointmentForm.get('userId')?.hasError('required')">
+              User is required
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="appointmentForm.get('Date')?.hasError('required')">
+              Date is required
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Time Slot</mat-label>
+            <mat-select formControlName="timeslot">
+              <mat-option *ngFor="let slot of timeSlots" [value]="slot" [disabled]="disabledSlots.includes(slot)">
+                {{ slot }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="appointmentForm.get('Timeslot')?.hasError('required')">
+              Time slot is required
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option value="Scheduled">Scheduled</mat-option>
+              <mat-option value="Completed">Completed</mat-option>
+              <mat-option value="Cancelled">Cancelled</mat-option>
+            </mat-select>
+            <mat-error *ngIf="appointmentForm.get('status')?.hasError('required')">
+              Status is required
+            </mat-error>
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" type="submit" [disabled]="appointmentForm.invalid" class="full-width">
+            Create Appointment
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>

@@ -23,4 +23,4 @@ export class HomeComponent {
   logout(): void {
     this.authService.logout(); // Call the logout method from AuthService
   }
-}
+} 

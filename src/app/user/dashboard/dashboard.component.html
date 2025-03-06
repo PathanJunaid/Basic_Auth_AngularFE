@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+  <span>User Dashboard</span>
+  <span class="spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile menu">
+    <span class="profile-circle">U</span>
+  </button>
+  <mat-menu #profileMenu="matMenu">
+    <button mat-menu-item routerLink="/analytics">Analytics</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+</mat-toolbar>
+
+<div class="dashboard-container">
+  <mat-card class="dashboard-card">
+    <mat-card-header>
+      <mat-card-title>Future Appointments</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let apt of futureAppointments">
+          {{ apt.date | date }} - {{ apt.timeSlot }} ({{ apt.status }})
+        </mat-list-item>
+        <mat-list-item *ngIf="futureAppointments.length === 0">No upcoming appointments</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="dashboard-card">
+    <mat-card-header>
+      <mat-card-title>Completed Appointments</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let apt of completedAppointments">
+          {{ apt.date | date }} - {{ apt.timeSlot }} ({{ apt.status }})
+        </mat-list-item>
+        <mat-list-item *ngIf="completedAppointments.length === 0">No completed appointments</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

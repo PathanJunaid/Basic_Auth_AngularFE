@@ -55,13 +55,12 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.isLoading = true;
       this.authService.login(this.loginForm.value).subscribe({
-        next: () => this.isLoading = false,
+        next: () => {
+          this.isLoading = false;
+        },
         error: (err) => {
           this.isLoading = false;
-          this.snackBar.open(err.message, 'Close', {
-            duration: 3000,
-            panelClass: ['error-snackbar']
-          });
+          this.snackBar.open(err.message, 'Close', { duration: 3000, panelClass: ['error-snackbar'] });
         }
       });
     }

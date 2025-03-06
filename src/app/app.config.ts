@@ -1,19 +1,17 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { jwtInterceptor } from './core/jwt.interceptor';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { routes } from './app.routes';
-import { provideAnimations } from '@angular/platform-browser/animations'; // Add this
-import { MatSnackBarModule } from '@angular/material/snack-bar'; // Add this
+import { jwtInterceptor } from './core/jwt.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideAnimations(), // Required for animations and MatSnackBar
-    MatSnackBarModule,
-    provideHttpClient(
-      withInterceptors([jwtInterceptor]) // Ensure jwtInterceptor exists
-    )
+    provideHttpClient(withInterceptors([jwtInterceptor])),
+    provideAnimations(),
+    MatSnackBarModule
   ]
 };

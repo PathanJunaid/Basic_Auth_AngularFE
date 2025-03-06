@@ -1,0 +1,50 @@
+.edit-appointment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 64px);
+    padding: 20px;
+  }
+  
+  .edit-appointment-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  mat-card-title {
+    font-size: 1.5rem;
+    color: #3f51b5;
+  }
+  
+  button[mat-raised-button] {
+    margin-top: 16px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .profile-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #3f51b5;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
